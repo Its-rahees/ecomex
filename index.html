@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Ecommerce Website</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>My Ecommerce Website</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="products.html">Products</a>
+<a href="cart.html">Cart</a>
+</nav>
+</header>
+<main>
+<section class="products">
+{% for product in products %}
+<div class="product">
+<img src="images/{{ product.image }}" alt="{{ product.name }}">
+<h2>{{ product.name }}</h2>
+<p>{{ product.description }}</p>
+<p>${{ product.price }}</p>
+<button onclick="addProductToCart({{ product.id }})">Add to Cart</button>
+</div>
+{% endfor %}
+</section>
+</main>
+<footer>
+<p>Copyright &copy; 2023 My Ecommerce Website</p>
+</footer>
+</body>
+</html>
